@@ -16,12 +16,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python -m venv .venv
-        source .venv/bin/activate
         python -m pip install --upgrade pip
         pip install pylint pytest psycopg2-binary faker
     - name: Analysing the code with pylint
       run: |
-        source .venv/bin/activate
-        # The init-hook injects your virtual environment packages into pylint's path
-        pylint --init-hook="import sys; sys.path.append('.venv/lib/python3.11/site-packages')" $(git ls-files '*.py')
+        pylint $(git ls-files '*.py')
