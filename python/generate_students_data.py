@@ -3,9 +3,9 @@ This script creates a database, adds a "students" table to it, and inserts 50 re
 """
 
 import os
+from datetime import date
 import psycopg2
 from faker import Faker
-from datetime import date
 
 DB_NAME = os.environ.get("PGDATABASE", "school")
 DB_USER = os.environ.get("PGUSER", "postgres")
