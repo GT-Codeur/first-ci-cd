@@ -13,7 +13,7 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: "3.11"
-        
+
     - name: Install dependencies
       run: |
         python -m venv .venv
@@ -23,4 +23,5 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         source .venv/bin/activate
-        pylint $(git ls-files '*.py')
+        # The init-hook injects your virtual environment packages into pylint's path
+        pylint --init-hook="import sys; sys.path.append('.venv/lib/python3.11/site-packages')" $(git ls-files '*.py')
