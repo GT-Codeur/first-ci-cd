@@ -56,3 +56,4 @@ with conn:
         )
 
 print("Insert Done!")
+# Ceci est un commentaire pour tester le workflow de CI/CD.
